@@ -1,0 +1,464 @@
+/* Общие стили */
+* {
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(0, 0, 0);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+h1, h2, h3 {
+    font-family: 'Oswald', sans-serif;
+    color: #ffffff;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #ff5e00;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #e04b00;
+}
+
+/* Шапка и навигация */
+        header {
+            background-color: rgba(34, 34, 34, 0.9);
+            padding: 15px ;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        /* Обычное меню (для широких экранов) */
+        .nav-desktop {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-desktop a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            padding: 5px 10px;
+            transition: color 0.3s;
+        }
+        
+        .nav-desktop a:hover {
+            color: #ff5e00;
+        }
+        
+        .nav-desktop .btn {
+            background: #ff5e00;
+            color: white;
+            padding: 8px 15px ;
+            border-radius: 4px;
+            margin-left: 20px;
+        }
+        
+        /* Бургер-меню (для узких экранов) */
+        .burger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+        }
+        
+        .burger span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background: white;
+            transition: all 0.3s;
+        }
+        
+        .nav-mobile {
+            display: none;
+
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: rgba(34, 34, 34, 0.8);;
+            padding: 15px;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+        }
+        
+        .nav-mobile.active {
+            display: block;
+        }
+        
+        .nav-mobile a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 10px 0;
+            border-bottom: 1px solid #333;
+        }
+        
+        .nav-mobile a:last-child {
+            border-bottom: none;
+        }
+        
+        .nav-mobile .btn {
+            background: #ff5e00;
+            color: white;
+            display: inline-block;
+            padding: 8px 15px;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        
+        /* Анимация бургера */
+        .burger.active span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+        
+        .burger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .burger.active span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 1200px) {
+            .nav-desktop {
+                display: none;
+            }
+            
+            .burger {
+                display: flex;
+            }
+        }
+        
+        @media (min-width: 1201px) {
+            .nav-mobile {
+                display: none !important;
+            }
+        }
+
+/* Главный экран */
+.hero {
+    position: relative;
+    height: 105vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden; /* Чтобы blur не выходил за границы */
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('images/logoblack.png') no-repeat center/cover;
+    transition: filter 0.5s ease; 
+    z-index: 1; 
+}
+
+.hero:hover .hero-bg {
+    filter: blur(15px); 
+}
+
+.hero .container {
+    position: relative;
+    z-index: 2; 
+    padding: 20px;
+}
+
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero .btn {
+    margin-top: 20px;
+}
+
+
+/* О нас */
+.about {
+    padding: 100px 0;
+    color: #ffffff;
+}
+
+.about-content {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.about-image img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+/* Тренеры, тренировки */
+.trainings, .trainers, .schedule, .contacts, .signup {
+    padding: 60px 0;
+}
+
+
+.training-cards, .trainer-cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    color: black;
+}
+
+.training-cards h3{
+    color: black;
+}
+
+.trainer-cards h3{
+    color: black;
+}
+
+.card, .trainer {
+    flex: 1;
+    min-width: 250px;
+    background: #f5f5f5;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.trainer img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+/* Расписание */
+
+        .address-item {
+            margin-bottom: 15px;
+            border: 3px solid #312f2f;;
+            border-radius: 5px;
+            padding: 15px;
+            background: #f9f9f9;
+        }
+        
+        .address-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .address-title {
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .arrow {
+            transition: transform 0.3s ease;
+            font-size: 20px;
+        }
+        
+        .arrow.down {
+            transform: rotate(0deg);
+        }
+        
+        .arrow.up {
+            transform: rotate(180deg);
+        }
+        
+        .schedule-table {
+            width: 100%;
+            margin-top: 15px;
+            border-collapse: collapse;
+            display: none;
+        }
+        
+        .schedule-table th, 
+        .schedule-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+            background-color: black;
+        }
+        
+        .schedule-table th {
+            background-color: #ff5e00;
+            color: white;
+        }
+        
+        .schedule-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #ffffff;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background: #ff5e00;
+    color: white;
+}
+
+/* Контакты */
+.contact-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    color: white;
+    
+}
+
+.social {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.social img {
+    height: 30px;
+}
+
+.map {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%;
+            overflow: hidden;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: #f0f0f0;
+        }
+
+        .map iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Адаптивные медиазапросы */
+        @media (max-width: 480px) {
+            .map {
+                padding-bottom: 75%;
+                border-radius: 0;
+                margin: 10px 0;
+            }
+        }
+
+        @media (min-width: 481px) and (max-width: 1024px) {
+            .map {
+                padding-bottom: 60%;
+            }
+        }
+
+        @media (min-width: 1025px) {
+            .map {
+                padding-bottom: 50%;
+                max-width: 1200px;
+                margin: 30px auto;
+            }
+        }
+
+
+/* Форма записи */
+.signup {
+        padding: 60px 0;
+        background: #000000;
+    }
+    
+    .signup form {
+        max-width: 500px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .signup input,
+    .signup select {
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+    
+    .signup select:disabled {
+        background-color: #f0f0f0;
+        color: #888;
+    }
+    
+    .signup .btn {
+        padding: 12px;
+        font-size: 16px;
+        margin-top: 10px;
+    }
+
+/* Подвал */
+.footer {
+    background: #222;
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+}
